@@ -3,10 +3,9 @@ class Zero1_Crondoctor_Adminhtml_CrondoctorController extends Mage_Adminhtml_Con
 {
 	protected function _initAction()
 	{
-		$this->loadLayout()
-			->_setActiveMenu('system/zero1_crondoctor');
-	
-		$this->_title(Mage::helper('zero1_crondoctor')->__('System'))->_title(Mage::helper('zero1_crondoctor')->__('Cron Doctor'));
+		$this->loadLayout()->_setActiveMenu('system/zero1_crondoctor');
+	    $this->_title(Mage::helper('zero1_crondoctor')->__('Cron Doctor'));
+
 		return $this;
 	}
 	
@@ -36,12 +35,6 @@ class Zero1_Crondoctor_Adminhtml_CrondoctorController extends Mage_Adminhtml_Con
     		} else {
     			$this->_getSession()->addError($this->__('No jobs were deleted.'));
     		}
-    	} catch (Zend_Gdata_App_CaptchaRequiredException $e) {
-    		$this->_getSession()->addError($e->getMessage());
-    		$this->_redirectToCaptcha($e);
-    		return;
-    	} catch (Zend_Gdata_App_Exception $e) {
-    		$this->_getSession()->addError($this->_parseGdataExceptionMessage($e->getMessage()));
     	} catch (Exception $e) {
     		$this->_getSession()->addError($e->getMessage());
     	}
@@ -71,12 +64,6 @@ class Zero1_Crondoctor_Adminhtml_CrondoctorController extends Mage_Adminhtml_Con
     		} else {
     			$this->_getSession()->addError($this->__('No jobs were updated.'));
     		}
-    	} catch (Zend_Gdata_App_CaptchaRequiredException $e) {
-    		$this->_getSession()->addError($e->getMessage());
-    		$this->_redirectToCaptcha($e);
-    		return;
-    	} catch (Zend_Gdata_App_Exception $e) {
-    		$this->_getSession()->addError($this->_parseGdataExceptionMessage($e->getMessage()));
     	} catch (Exception $e) {
     		$this->_getSession()->addError($e->getMessage());
     	}

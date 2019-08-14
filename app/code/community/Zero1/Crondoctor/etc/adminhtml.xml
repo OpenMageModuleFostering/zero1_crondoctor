@@ -20,6 +20,14 @@
                                 <title>Cron Doctor</title>
                                 <sort_order>99</sort_order>
                             </zero1_crondoctor>
+
+                            <config>
+                                <children>
+                                    <zero1_crondoctor translate="title" module="zero1_crondoctor">
+                                        <title>Cron Doctor Section</title>
+                                    </zero1_crondoctor>
+                                </children>
+                            </config>
                         </children>
                     </system>
                 </children>

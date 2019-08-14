@@ -1,50 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<config>    
+<config>
     <modules>
         <Zero1_Crondoctor>
-            <version>1.0.1.0</version>
+            <version>1.0.0</version>
         </Zero1_Crondoctor>
     </modules>
-    
-    <global>        
+
+    <global>
         <blocks>
             <zero1_crondoctor>
                 <class>Zero1_Crondoctor_Block</class>
             </zero1_crondoctor>
         </blocks>
-        
+
         <helpers>
             <zero1_crondoctor>
                 <class>Zero1_Crondoctor_Helper</class>
             </zero1_crondoctor>
         </helpers>
-        
-        <models>            
+
+        <models>
             <zero1_crondoctor>
                 <class>Zero1_Crondoctor_Model</class>
-                <resourceModel>zero1_crondoctor_resource</resourceModel>
             </zero1_crondoctor>
-            
-            <zero1_crondoctor_resource>
-                <class>Zero1_Crondoctor_Model_Resource</class>
-                <entities>
-                    <crondoctor>
-                        <table>zero1_crondoctor</table>
-                    </crondoctor>
-                </entities>
-            </zero1_crondoctor_resource>
         </models>
-        
+
         <resources>
             <zero1_crondoctor_setup>
                 <setup>
                     <module>Zero1_Crondoctor</module>
-                    <class>Zero1_Crondoctor_Model_Resource_Setup</class>
                 </setup>
             </zero1_crondoctor_setup>
         </resources>
+
+        <template>
+            <email>
+                <zero1_crondoctor_settings_zombie_email_template translate="label" module="zero1_crondoctor">
+                    <label>Cron Doctor zombie email</label>
+                    <file>crondoctor_zombieemail.html</file>
+                    <type>html</type>
+                </zero1_crondoctor_settings_zombie_email_template>
+            </email>
+        </template>
     </global>
-    
+
     <admin>
         <routers>
             <adminhtml>
@@ -56,17 +55,7 @@
             </adminhtml>
         </routers>
     </admin>
-    
-    <frontend>
-        <layout>
-            <updates>
-                <zero1_crondoctor>
-                    <file>crondoctor/crondoctor.xml</file>
-                </zero1_crondoctor>
-            </updates>
-        </layout>
-    </frontend>
-    
+
     <adminhtml>
         <layout>
             <updates>
@@ -76,14 +65,27 @@
             </updates>
         </layout>
     </adminhtml>
-    
+
+    <crontab>
+        <jobs>
+            <zero1_crondoctor_zombie_check>
+                <schedule>
+                    <cron_expr>* * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>zero1_crondoctor/observer::checkForZombieJobs</model>
+                </run>
+            </zero1_crondoctor_zombie_check>
+        </jobs>
+    </crontab>
+
     <default>
         <zero1_crondoctor>
-            <options>
-                <enabled>1</enabled>
-            </options>
+            <settings>
+                <zombie_email_template>zero1_crondoctor_settings_zombie_email_template</zombie_email_template>
+                <zombie_email></zombie_email>
+                <zombie_time>5</zombie_time>
+            </settings>
         </zero1_crondoctor>
     </default>
-    
-  
 </config>
