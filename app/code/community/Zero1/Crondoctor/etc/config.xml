@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Zero1_Crondoctor>
-            <version>1.0.0</version>
+            <version>1.0.6</version>
         </Zero1_Crondoctor>
     </modules>
 
@@ -23,6 +23,12 @@
             <zero1_crondoctor>
                 <class>Zero1_Crondoctor_Model</class>
             </zero1_crondoctor>
+
+            <cron>
+                <rewrite>
+                    <observer>Zero1_Crondoctor_Model_Observer</observer>
+                </rewrite>
+            </cron>
         </models>
 
         <resources>
@@ -85,6 +91,8 @@
                 <zombie_email_template>zero1_crondoctor_settings_zombie_email_template</zombie_email_template>
                 <zombie_email></zombie_email>
                 <zombie_time>5</zombie_time>
+                <developer_mode>0</developer_mode>
+                <developer_mode_jobs>send_notification,newsletter_send_all</developer_mode_jobs>
             </settings>
         </zero1_crondoctor>
     </default>

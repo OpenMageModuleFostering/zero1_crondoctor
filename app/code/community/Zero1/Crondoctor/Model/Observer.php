@@ -1,13 +1,16 @@
 <?php
-class Zero1_Crondoctor_Model_Observer
+class Zero1_Crondoctor_Model_Observer extends Mage_Cron_Model_Observer
 {
     const XML_PATH_ZOMBIE_EMAIL_TEMPLATE = 'zero1_crondoctor/settings/zombie_email_template';
     const XML_PATH_ZOMBIE_EMAIL_TO = 'zero1_crondoctor/settings/zombie_email';
     const XML_PATH_ZOMBIE_TIME = 'zero1_crondoctor/settings/zombie_time';
 
+    const XML_PATH_DEVELOPER_MODE = 'zero1_crondoctor/settings/developer_mode';
+    const XML_PATH_DEVELOPER_MODE_JOBS = 'zero1_crondoctor/settings/developer_mode_jobs';
+
     protected $_zombieEmailSubject = 'Magento Cron Doctor Zombie Report';
 
-    public function checkForZombieJobs(Varien_Event_Observer $observer)
+    public function checkForZombieJobs($observer)
     {
         $storeId = Mage::app()->getStore()->getId();
         $to = Mage::getStoreConfig(self::XML_PATH_ZOMBIE_EMAIL_TO, $storeId);
@@ -57,5 +60,29 @@ class Zero1_Crondoctor_Model_Observer
 
             $translate->setTranslateInline(true);
         }
+    }
+
+    protected function _generateJobs($jobs, $exists)
+    {
+        $devMode = Mage::getStoreConfig(self::XML_PATH_DEVELOPER_MODE);
+        $devModeJobs = Mage::getStoreConfig(self::XML_PATH_DEVELOPER_MODE_JOBS);
+        $devModeJobs = preg_replace('/[^a-z0-9_,]*/', '', $devModeJobs);
+        $devModeJobs = explode(',', $devModeJobs);
+
+        if ($devMode) {
+            $devJobs = array();     // By default, don't run anything if in dev mode.
+
+            if (is_array($devModeJobs) && count($devModeJobs) > 0) {
+                foreach ($jobs as $jobCode => $jobConfig) {
+                    if (in_array($jobCode, $devModeJobs)) {
+                        $devJobs[$jobCode] = $jobConfig;
+                    }
+                }
+            }
+
+            return parent::_generateJobs($devJobs, $exists);
+        }
+
+        return parent::_generateJobs($jobs, $exists);
     }
 }
