@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>Zero1_Crondoctor</name>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <stability>stable</stability>
     <license uri="http://shop.zero1.co.uk/LICENSE.txt">Commercial</license>
     <channel>community</channel>
@@ -9,11 +9,11 @@
     <summary>Crondoctor</summary>
     <description>Crondoctor&#xD;
 </description>
-    <notes>Adding Zombie support</notes>
+    <notes>Amendments to email template</notes>
     <authors><author><name>Arron Moss</name><user>zero1limited</user><email>arron.moss@zero1.co.uk</email></author></authors>
-    <date>2013-04-23</date>
-    <time>15:15:28</time>
-    <contents><target name="magecommunity"><dir name="Zero1"><dir name="Crondoctor"><dir name="Block"><dir name="Adminhtml"><dir name="Crondoctor"><file name="Grid.php" hash="ff758796ef8d66b388e0b1d60d73f92e"/><file name="Notice.php" hash="6b4c20f69f875fa3410a34acc8d2209a"/></dir><file name="Crondoctor.php" hash="6fa8fd6eee1dd35d9b82f861238738c1"/></dir></dir><dir name="Helper"><file name="Data.php" hash="4b85072f6909ba3f083c99814103a92a"/></dir><dir name="Model"><file name="Observer.php" hash="dfd50076e1bfdcf07271be735259b03b"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="CrondoctorController.php" hash="209983731264467ce1c2d3d7989039ac"/></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="56bcc9e463c033655658d711e3549636"/><file name="config.xml" hash="d7704706605fd5b48d589b68d64d63dc"/><file name="system.xml" hash="13b054b6902fd74eacdcdec95dc054de"/></dir><dir name="sql"><dir name="zero1_crondoctor_setup"><file name="install-1.0.0.php" hash="af6b55e68b5c327efcf58452719d359e"/><file name="mysql4-install-1.0.0.php" hash="af6b55e68b5c327efcf58452719d359e"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Zero1_Crondoctor.xml" hash="3ccefc4ae6efeecc2bfd7df6a59264f1"/></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><dir name="crondoctor"><file name="crondoctor.xml" hash="61e541ccd7156e8e7dad6197792b4315"/></dir></dir><dir name="template"><dir name="crondoctor"><file name="notice.phtml" hash="95575d8f09e623c05c0de950677346ce"/></dir></dir></dir></dir></dir></target><target name="magelocale"><dir name="en_US"><dir name="template"><dir name="email"><file name="crondoctor_zombieemail.html" hash="dbb8893fbb2820d9959a6aee56e05722"/></dir></dir></dir></target></contents>
+    <date>2013-06-26</date>
+    <time>10:27:04</time>
+    <contents><target name="magecommunity"><dir name="Zero1"><dir name="Crondoctor"><dir name="Block"><dir name="Adminhtml"><dir name="Crondoctor"><file name="Grid.php" hash="ff758796ef8d66b388e0b1d60d73f92e"/><file name="Notice.php" hash="6b4c20f69f875fa3410a34acc8d2209a"/></dir><file name="Crondoctor.php" hash="6fa8fd6eee1dd35d9b82f861238738c1"/></dir></dir><dir name="Helper"><file name="Data.php" hash="4b85072f6909ba3f083c99814103a92a"/></dir><dir name="Model"><file name="Observer.php" hash="dfd50076e1bfdcf07271be735259b03b"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="CrondoctorController.php" hash="209983731264467ce1c2d3d7989039ac"/></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="56bcc9e463c033655658d711e3549636"/><file name="config.xml" hash="d7704706605fd5b48d589b68d64d63dc"/><file name="system.xml" hash="13b054b6902fd74eacdcdec95dc054de"/></dir><dir name="sql"><dir name="zero1_crondoctor_setup"><file name="install-1.0.0.php" hash="af6b55e68b5c327efcf58452719d359e"/><file name="mysql4-install-1.0.0.php" hash="af6b55e68b5c327efcf58452719d359e"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Zero1_Crondoctor.xml" hash="3ccefc4ae6efeecc2bfd7df6a59264f1"/></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><dir name="crondoctor"><file name="crondoctor.xml" hash="61e541ccd7156e8e7dad6197792b4315"/></dir></dir><dir name="template"><dir name="crondoctor"><file name="notice.phtml" hash="95575d8f09e623c05c0de950677346ce"/></dir></dir></dir></dir></dir></target><target name="magelocale"><dir name="en_US"><dir name="template"><dir name="email"><file name="crondoctor_zombieemail.html" hash="ad7b0695ba42ddaea95e50b8d9859370"/></dir></dir></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
 </package>
