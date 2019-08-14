@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Zero1_Crondoctor",
+    "type": "magento-module",
+    "license": "Commercial",
+    "homepage": "",
+    "description": "Crondoctor",
+    "authors": [
+    {
+        "name": "Arron Moss",
+        "email": "arron.moss@zero1.co.uk"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

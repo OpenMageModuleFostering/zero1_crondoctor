@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Zero1_Crondoctor>
+            <version>1.0.10</version>
+        </Zero1_Crondoctor>
+    </modules>
+
+    <global>
+        <blocks>
+            <zero1_crondoctor>
+                <class>Zero1_Crondoctor_Block</class>
+            </zero1_crondoctor>
+        </blocks>
+
+        <helpers>
+            <zero1_crondoctor>
+                <class>Zero1_Crondoctor_Helper</class>
+            </zero1_crondoctor>
+        </helpers>
+
+        <models>
+            <zero1_crondoctor>
+                <class>Zero1_Crondoctor_Model</class>
+            </zero1_crondoctor>
+
+            <cron>
+                <rewrite>
+                    <observer>Zero1_Crondoctor_Model_Observer</observer>
+                    <schedule>Zero1_Crondoctor_Model_Schedule</schedule>
+                </rewrite>
+            </cron>
+        </models>
+
+        <resources>
+            <zero1_crondoctor_setup>
+                <setup>
+                    <module>Zero1_Crondoctor</module>
+                </setup>
+            </zero1_crondoctor_setup>
+        </resources>
+
+        <template>
+            <email>
+                <zero1_crondoctor_settings_zombie_email_template translate="label" module="zero1_crondoctor">
+                    <label>Cron Doctor zombie email</label>
+                    <file>crondoctor_zombieemail.html</file>
+                    <type>html</type>
+                </zero1_crondoctor_settings_zombie_email_template>
+            </email>
+        </template>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <zero1_crondoctor before="Mage_Adminhtml">Zero1_Crondoctor_Adminhtml</zero1_crondoctor>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <zero1_crondoctor>
+                    <file>crondoctor/crondoctor.xml</file>
+                </zero1_crondoctor>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <crontab>
+        <jobs>
+            <!--<zero1_crondoctor_zombie_check>-->
+                <!--<schedule>-->
+                    <!--<cron_expr>* * * * *</cron_expr>-->
+                <!--</schedule>-->
+                <!--<run>-->
+                    <!--<model>zero1_crondoctor/observer::checkForZombieJobs</model>-->
+                <!--</run>-->
+            <!--</zero1_crondoctor_zombie_check>-->
+            <!-- Job Expr Overrides -->
+            <M2ePro_cron>
+                <schedule>
+                    <config_path>zero1_crondoctor/job_expr_overrides/m2epro_cron</config_path>
+                </schedule>
+            </M2ePro_cron>
+        </jobs>
+        <events>
+            <!-- Schedule Addition -->
+            <schedule>
+                <observers>
+                    <cron_observer>
+                        <class>cron/observer</class>
+                        <method>schedule</method>
+                    </cron_observer>
+                </observers>
+            </schedule>
+            <!-- Zombie Checker -->
+            <zombie>
+                <observers>
+                    <cron_observer>
+                        <class>zero1_crondoctor/observer_zombie</class>
+                        <method>checkForZombieJobs</method>
+                    </cron_observer>
+                </observers>
+            </zombie>
+        </events>
+    </crontab>
+
+    <default>
+        <zero1_crondoctor>
+            <settings>
+                <zombie_email_template>zero1_crondoctor_settings_zombie_email_template</zombie_email_template>
+                <zombie_email></zombie_email>
+                <zombie_time>5</zombie_time>
+                <developer_mode>0</developer_mode>
+                <developer_mode_jobs>send_notification,newsletter_send_all</developer_mode_jobs>
+            </settings>
+        </zero1_crondoctor>
+    </default>
+</config>

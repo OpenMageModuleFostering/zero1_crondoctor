@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_crondoctor_index>
+        <reference name="content">
+            <block type="zero1_crondoctor/adminhtml_crondoctor" name="zero1_crondoctor" />
+        </reference>
+    </adminhtml_crondoctor_index>
+
+    <default>
+        <reference name="notifications">
+            <block type="zero1_crondoctor/adminhtml_crondoctor_notice" name="zero1_crondoctor_notice" template="crondoctor/notice.phtml" />
+        </reference>
+    </default>
+
+    <adminhtml_crondoctor_visual_index>
+        <reference name="content">
+            <block type="zero1_crondoctor/adminhtml_visual" name="zero1_crondoctor_visual_container" />
+        </reference>
+    </adminhtml_crondoctor_visual_index>
+</layout>

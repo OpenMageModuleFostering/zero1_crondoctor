@@ -1,0 +1,6 @@
+<?php if(count($this->getErrors()) > 0) : ?>
+<div class="notification-global">
+    <strong class="label">Cron errors with the following names:</strong>
+    <?php echo implode(', ', $this->getErrors()); ?>
+</div>
+<?php endif; ?>
